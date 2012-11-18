@@ -1,9 +1,5 @@
 
-extern "C" void g_printLog(const char* sz_log);
-
 #include <string.h>
-//??
-#include <stdio.h>
 
 namespace flat_board
 {
@@ -50,10 +46,6 @@ namespace flat_board
 		Header header;
 
 		memcpy(&header, p_stream, sizeof(header));
-
-char sz_log[256];
-sprintf(sz_log, "[SMGAL] %d, %d, %d, %d", sizeof(header), header.bit_per_pixel, header.x1, header.x2);
-g_printLog(sz_log);
 
 		p_stream += sizeof(header);
 		p_stream_end += (header.bit_per_pixel == 8) ? -sizeof(Palette256) : 0;
@@ -132,7 +124,6 @@ g_printLog(sz_log);
 			}
 		}
 
-g_printLog("[SMGAL] #6");
 		{
 			Pixel palette[256];
 
@@ -172,7 +163,6 @@ g_printLog("[SMGAL] #6");
 				++p_buffer;
 			}
 		}
-g_printLog("[SMGAL] #7");
 
 		return true;
 	}
