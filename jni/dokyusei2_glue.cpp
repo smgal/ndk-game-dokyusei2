@@ -29,7 +29,7 @@ extern "C" void dokyu_glue_init(void)
 
 extern "C" void dokyu_glue_done(void)
 {
-	main_app::init();
+	main_app::done();
 }
 
 extern "C" void dokyu_glue_process(void* p_start_address, int width, int height, int bytes_per_line, int bits_per_pixel, int touch_x, int touch_y)
